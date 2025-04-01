@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: To Show Error (This will fail)
+      - name: To Show Error (Will not stop pipeline)
         run: |
           echo "Should fail at this point ..."
           exit 1
-      
+        continue-on-error: true
+
       - name: Run a one-line script
         run: echo "Continuous Integration"
